@@ -25,6 +25,7 @@ services:
       TZ: Asia/Ho_Chi_Minh
       NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-https://api.devjobs.click}
       NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://devjobs.click}
+      NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${NEXT_PUBLIC_TURNSTILE_SITE_KEY:-0x4AAAAAAF_MsZ0vt1mpZCng}
       INTERNAL_API_URL: ${INTERNAL_API_URL:-http://host.docker.internal:4000}
     extra_hosts:
       - "host.docker.internal:host-gateway"

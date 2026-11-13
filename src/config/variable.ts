@@ -3,6 +3,9 @@ export const API_URL =
     ? process.env.INTERNAL_API_URL
     : (process.env.NEXT_PUBLIC_API_URL || "https://api.devjobs.click");
 
+export const TURNSTILE_SITE_KEY =
+  process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "0x4AAAAAAF_MsZ0vt1mpZCng";
+
 export const positionList = [
   { label: "Intern", value: "intern" },
   { label: "Fresher", value: "fresher" },

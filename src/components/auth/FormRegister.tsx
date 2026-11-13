@@ -5,6 +5,7 @@ import { FaArrowRight, FaCircleExclamation } from "react-icons/fa6";
 import { API_URL } from "@/config/variable";
 import { isStrongPassword, isValidEmail } from "@/lib/validation";
 import { PasswordField } from "@/components/auth/PasswordField";
+import { TurnstileWidget } from "@/components/auth/TurnstileWidget";
 import type { FieldErrors } from "@/types/forms";
 
 export const FormRegister = ({ role = "user" }: { role?: "user" | "company" }) => {
@@ -12,6 +13,8 @@ export const FormRegister = ({ role = "user" }: { role?: "user" | "company" }) =
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [resetCaptcha, setResetCaptcha] = useState(0);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [serverError, setServerError] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -48,12 +51,17 @@ export const FormRegister = ({ role = "user" }: { role?: "user" | "company" }) =
     setServerError("");
     if (Object.keys(nextErrors).length > 0) return;
 
+    if (!turnstileToken) {
+      setServerError("Vui lòng hoàn thành xác minh Captcha bên dưới!");
+      return;
+    }
+
     setSubmitting(true);
 
     try {
       const body = isCompany
-        ? { companyName: companyName.trim(), email: email.trim(), password }
-        : { fullName: fullName.trim(), email: email.trim(), password };
+        ? { companyName: companyName.trim(), email: email.trim(), password, turnstileToken }
+        : { fullName: fullName.trim(), email: email.trim(), password, turnstileToken };
 
       const res = await fetch(endpoint, {
         method: "POST",
@@ -64,12 +72,16 @@ export const FormRegister = ({ role = "user" }: { role?: "user" | "company" }) =
 
       if (!data || data.code === "error") {
         setServerError(data?.message || "Đăng ký thất bại!");
+        setTurnstileToken("");
+        setResetCaptcha((prev) => prev + 1);
         return;
       }
 
       window.location.assign(loginHref);
     } catch {
       setServerError("Không kết nối được máy chủ!");
+      setTurnstileToken("");
+      setResetCaptcha((prev) => prev + 1);
     } finally {
       setSubmitting(false);
     }
@@ -113,6 +125,19 @@ export const FormRegister = ({ role = "user" }: { role?: "user" | "company" }) =
       />
 
       <PasswordField value={password} onChange={setPassword} error={errors.password} showRules />
+
+      <TurnstileWidget
+        onVerify={(token) => {
+          setTurnstileToken(token);
+          setServerError("");
+        }}
+        onExpire={() => setTurnstileToken("")}
+        onError={() => {
+          setTurnstileToken("");
+          setServerError("Không thể tải Captcha, vui lòng làm mới trang!");
+        }}
+        resetSignal={resetCaptcha}
+      />
 
       <button type="submit" disabled={submitting} className="btn-primary h-11 w-full">
         {submitting ? "Đang tạo tài khoản…" : "Tạo tài khoản"}
