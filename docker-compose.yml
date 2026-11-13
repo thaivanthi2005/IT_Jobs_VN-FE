@@ -30,7 +30,8 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
-      - "${PORT:-3000}:3000"
+      # Chỉ lắng nghe trên 127.0.0.1 (localhost của host), ngăn chặn bypass Cloudflare từ Internet
+      - "127.0.0.1:${PORT:-3000}:3000"
     healthcheck:
       test:
         [
