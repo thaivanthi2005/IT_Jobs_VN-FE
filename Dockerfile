@@ -45,6 +45,9 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 ENV TZ=Asia/Ho_Chi_Minh
+ENV NEXT_PUBLIC_API_URL=https://api.devjobs.click
+ENV NEXT_PUBLIC_SITE_URL=https://devjobs.click
+ENV INTERNAL_API_URL=http://host.docker.internal:4000
 
 # dumb-init xử lý process signal chuẩn trong container
 RUN apk add --no-cache dumb-init

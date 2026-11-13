@@ -3,30 +3,18 @@ import { FaArrowRight } from "react-icons/fa6";
 import { JobQuickViewClient } from "@/components/cards/JobQuickViewClient";
 import { EmptyState } from "@/components/ui/States";
 import { Reveal } from "@/components/ui/Reveal";
-import { API_URL } from "@/config/variable";
+import { fetchServerApi } from "@/lib/server-api";
 import { isBuild } from "@/lib/build-phase";
 import type { JobCard, SearchResult } from "@/types/api";
 
 /**
  * Featured jobs, fetched on the server.
- *
- * This used to be a client component that fetched on mount, which meant every
- * visitor saw skeletons and waited a round trip before any job appeared. Moving
- * the fetch to the server removes that wait entirely: the cards are in the HTML.
- *
- * Only the optional quick-view dialog remains client-side, isolated in
- * `JobQuickViewClient`, so the section itself ships no JavaScript.
  */
 async function getFeaturedJobs(limit: number): Promise<{ jobs: JobCard[]; total: number }> {
-  /* skip the request entirely during `next build`: there is no backend, and Next
-     prints the fetch error even when the promise is caught */
   if (isBuild()) return { jobs: [], total: 0 };
 
   try {
-    const res = await fetch(`${API_URL}/search?page=1`, {
-      next: { revalidate: 60 },
-      signal: AbortSignal.timeout(2000),
-    });
+    const res = await fetchServerApi("/search?page=1");
     if (!res.ok) return { jobs: [], total: 0 };
     const data = (await res.json()) as SearchResult & { code?: string };
     if (data?.code !== "success") return { jobs: [], total: 0 };
@@ -34,7 +22,8 @@ async function getFeaturedJobs(limit: number): Promise<{ jobs: JobCard[]; total:
       jobs: (data.jobs || []).slice(0, limit),
       total: Number(data.totalRecord) || 0,
     };
-  } catch {
+  } catch (err) {
+    console.error("FeaturedJobsSection fetch error:", err);
     return { jobs: [], total: 0 };
   }
 }

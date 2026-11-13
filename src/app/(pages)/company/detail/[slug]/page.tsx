@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa6";
-import { API_URL } from "@/config/variable";
+import { fetchServerApi } from "@/lib/server-api";
 import type { CompanyDetail, JobCard } from "@/types/api";
 import { CompanyDetailView } from "./CompanyDetailView";
 
@@ -18,7 +18,7 @@ type CompanyResponse = {
 
 async function getCompany(slug: string): Promise<CompanyResponse | null> {
   try {
-    const res = await fetch(`${API_URL}/company/detail/${slug}`, { cache: "no-store" });
+    const res = await fetchServerApi(`/company/detail/${slug}`, { cache: "no-store" });
     const data = (await res.json()) as CompanyResponse;
     return data?.code === "success" ? data : null;
   } catch {

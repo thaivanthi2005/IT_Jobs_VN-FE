@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa6";
-import { API_URL } from "@/config/variable";
+import { fetchServerApi } from "@/lib/server-api";
 import type { JobDetail } from "@/types/api";
 import { JobDetailView } from "./JobDetailView";
 
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 async function getJobDetail(slug: string): Promise<JobDetail | null> {
   try {
-    const res = await fetch(`${API_URL}/job/detail/${slug}`, { cache: "no-store" });
+    const res = await fetchServerApi(`/job/detail/${slug}`, { cache: "no-store" });
     const data = await res.json();
     if (data?.code !== "success") return null;
     return data.jobDetail as JobDetail;

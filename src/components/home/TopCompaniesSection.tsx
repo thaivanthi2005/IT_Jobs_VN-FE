@@ -4,31 +4,24 @@ import { Reveal } from "@/components/ui/Reveal";
 import { RevealGroup } from "@/components/ui/RevealGroup";
 import { CardCompanyItem } from "@/components/cards/CardCompanyItem";
 import { EmptyState } from "@/components/ui/States";
-import { API_URL } from "@/config/variable";
+import { fetchServerApi } from "@/lib/server-api";
 import { isBuild } from "@/lib/build-phase";
 import type { CompanyCard } from "@/types/api";
 
 /**
  * Top hiring companies, fetched on the server.
- *
- * Same reasoning as `FeaturedJobsSection`: the previous version fetched on mount,
- * so the visitor saw skeleton tiles and waited a round trip. The company cards are
- * static markup with links, so nothing here needs the client at all.
  */
 async function getCompanies(limit: number): Promise<CompanyCard[]> {
-  /* same build-time guard as FeaturedJobsSection */
   if (isBuild()) return [];
 
   try {
-    const res = await fetch(`${API_URL}/company/list?limitItems=${limit}`, {
-      next: { revalidate: 60 },
-      signal: AbortSignal.timeout(2000),
-    });
+    const res = await fetchServerApi(`/company/list?limitItems=${limit}`);
     if (!res.ok) return [];
     const data = (await res.json()) as { code?: string; companyList?: CompanyCard[] };
     if (data?.code !== "success") return [];
     return (data.companyList || []).slice(0, limit);
-  } catch {
+  } catch (err) {
+    console.error("TopCompaniesSection fetch error:", err);
     return [];
   }
 }
