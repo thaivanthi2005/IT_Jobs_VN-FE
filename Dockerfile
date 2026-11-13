@@ -21,10 +21,10 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # Khai báo các build arguments cho biến môi trường public
-ARG NEXT_PUBLIC_API_URL=http://localhost:4000
-ARG NEXT_PUBLIC_SITE_URL=http://localhost:3000
-ARG NEXT_PUBLIC_API_TINYMCE
-ARG JWT_SECRET
+ARG NEXT_PUBLIC_API_URL=https://api.devjobs.click
+ARG NEXT_PUBLIC_SITE_URL=https://devjobs.click
+ARG NEXT_PUBLIC_API_TINYMCE=
+ARG JWT_SECRET=
 
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
