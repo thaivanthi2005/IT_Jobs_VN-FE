@@ -1,0 +1,6 @@
+  ok    document listens for runtime messages (1)
+  ok    rest holds still (t=0.0000s)
+  ok    hover orbits (t=0.779s over 90 frames)
+  ok    hover rate stays under one authored revolution
+
+hover plumbing verified

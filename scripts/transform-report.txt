@@ -1,0 +1,14 @@
+  ok    transform module evaluates
+  ok    source is LF-only
+  ok    brand/dark script parses
+  ok    brand/light script parses
+  ok    handbook/dark script parses
+  ok    handbook/light script parses
+  ok    studio/dark script parses
+  ok    studio/light script parses
+  ok    signal/dark script parses
+  ok    signal/light script parses
+  ok    falling-diagonal/dark script parses
+  ok    falling-diagonal/light script parses
+
+all checks passed

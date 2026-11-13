@@ -1,0 +1,8 @@
+  ok    opening one overlay pauses
+  ok    a second overlay does not re-emit
+  ok    closing one of two keeps it paused
+  ok    closing the last overlay resumes
+  ok    an extra close is a no-op
+  ok    unsubscribe stops delivery
+
+pause channel verified

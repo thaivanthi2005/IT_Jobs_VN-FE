@@ -1,0 +1,16 @@
+light tokens: page #F1F5F9  card #FFFFFF  border #CBD5E1  muted #E8EEF6
+  ok   card fill vs page: 1.10:1 (min 1.08)
+  ok   border vs page: 1.36:1 (min 1.35)
+  ok   border vs card: 1.48:1 (min 1.35)
+  ok   muted fill vs page: 1.07:1 (min 1.04)
+dark tokens:  page #080F1D  card #101A2E  border #24324E
+  ok   dark card vs page: 1.10:1 (min 1.08)
+  ok   dark border vs card: 1.36:1 (min 1.25)
+utility ramp (tailwind ink scale)
+  ink-100 #E2E8F0  ink-200 #CBD5E1  ink-300 #B4C4D6
+  ok   border-ink-200 vs white card: 1.48:1
+  ok   border-ink-100 vs white card: 1.23:1 (divider)
+  ok   border-ink-300 vs white card: 1.78:1 (hover)
+  ok   ramp steps are distinct
+
+surface contrast ok

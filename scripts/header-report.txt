@@ -1,0 +1,32 @@
+header
+  ok    sticks to the top
+  ok    frosted when scrolled
+  ok    lifts off the page when scrolled
+  ok    brand wash behind the bar
+  ok    reading-progress line is driven by scroll
+  ok    scroll work is coalesced into a frame
+  ok    scroll listener is passive
+  ok    pending frame is cancelled on unmount
+  ok    listeners are removed on unmount
+  ok    mobile trigger is labelled
+  ok    mobile trigger reports its state
+nav
+  ok    reads the current route
+  ok    derives the active section
+  ok    announces the current page
+  ok    underline sweeps in on hover
+  ok    underline uses the project easing
+  ok    Escape closes the mega menu
+logo
+  ok    worldmark uses the 3D mark
+  ok    generic briefcase glyph is gone
+  ok    wordmark carries the brand gradient
+  ok    Vietnam chip present
+  ok    link is labelled with the country
+  ok    mark uses a perspective projection
+  ok    mark animates
+  ok    mark pauses with the shared channel
+  ok    mark respects the motion preference
+  ok    mark stays on Canvas 2D
+
+header verified

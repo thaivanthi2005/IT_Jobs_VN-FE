@@ -1,0 +1,20 @@
+Reveal component
+  ok    uses an IntersectionObserver
+  ok    stops observing after the first reveal
+  ok    disconnects on unmount
+  ok    applies the hidden state from script, not markup
+  ok    marks the revealed state
+  ok    tunes the trigger margin
+RevealGroup
+  ok    staggers children
+  ok    handles a children array
+CSS
+  ok    hidden state
+  ok    shown state
+  ok    declares the composited properties
+  ok    uses the project easing
+  ok    reduced motion shows everything
+wiring
+  ok    9 components reveal on scroll
+
+reveal system verified

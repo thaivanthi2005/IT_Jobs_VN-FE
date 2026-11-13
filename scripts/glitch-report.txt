@@ -1,0 +1,45 @@
+variant registry
+  ok    falling-diagonal is registered
+authored constants injected verbatim
+  ok    title
+  ok    headline line 1
+  ok    headline line 2
+  ok    headline widths
+  ok    axis
+  ok    phase
+  ok    field
+  ok    head style
+  ok    weight
+  ok    size
+  ok    tracking
+  ok    ease
+  ok    no spring
+  ok    4:3 crop
+copy is Vietnamese, not the authored English filler
+  ok    no leftover English headline
+  ok    headline visible: TÍN HIỆU NHIỄU
+  ok    headline is Vietnamese: TÍN HIỆU NHIỄU
+  ok    headline visible: CƠ HỘI VẪN RÕ
+  ok    headline is Vietnamese: CƠ HỘI VẪN RÕ
+palette and ink
+  ok    all 12 palette colours present
+  ok    dark ink pair present
+  ok    offset plate present
+glitch machinery
+  ok    glitch painter injected
+  ok    painter registry intact
+  ok    headline channel split present
+  ok    two channel ghosts present
+descending counter-orbit
+  ok    direction -1 negates the spin
+  ok    headline scales about its authored centre
+live typography channel
+  ok    document listens for runtime messages
+  ok    handles runtime.font
+  ok    handles runtime.weight
+  ok    handles runtime.headlineSize
+  ok    headline size clamped to 0.6–1.8
+document still parses
+  ok    script parses as JavaScript
+
+glitch fall verified

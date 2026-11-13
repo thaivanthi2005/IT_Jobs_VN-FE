@@ -1,0 +1,23 @@
+geometry advances between frames
+  ok    all 12 plotted points move
+  ok    frame delta up to 0.345px per 0.02 rad
+a full turn returns the shape
+  ok    2π is a clean loop point
+perspective is real, not orthographic
+  ok    near edge 15.41px vs far 13.44px (foreshortened)
+  ok    plate fills a readable share of the tile
+stays inside the canvas
+  ok    bounds 3.2…30.8 × 1.1…29.3 inside 34px
+source honours the motion contract
+  ok    runs on rAF
+  ok    cancels on unmount
+  ok    reads the motion preference
+  ok    pauses with the shared channel
+  ok    stops on a hidden tab
+  ok    accumulates by delta time, not frame count
+  ok    runs a second clock for the secondary motion
+  ok    the stack fans open and closed
+  ok    draws a travelling highlight
+  ok    clocks are independent (0.55 vs 0.9)
+
+3D logo mark verified

@@ -1,0 +1,35 @@
+job card
+  ok    server card exports the shared body
+  ok    server card stays free of event handlers
+  ok    client card takes an open callback
+  ok    intercepts the plain left click
+  ok    modifier clicks still navigate
+  ok    announces the dialog to assistive tech
+  ok    keeps the real href
+quick view dialog
+  ok    dialog role
+  ok    modal semantics
+  ok    Escape closes
+  ok    backdrop click closes
+  ok    only a true backdrop press closes
+  ok    X button labelled
+  ok    pauses the ambient 3D scenes
+  ok    resumes them on close
+  ok    locks background scroll
+  ok    traps Tab
+  ok    returns focus on close
+dialog data binding
+  ok    title
+  ok    company name
+  ok    salary
+  ok    location
+  ok    technology list
+  ok    apply link
+  ok    apply button label
+wiring
+  ok    featured section renders the dialog
+  ok    client grid renders the dialog
+  ok    search container renders the dialog
+  ok    the grid forwards card clicks to the dialog and closes it
+
+dialog contract verified

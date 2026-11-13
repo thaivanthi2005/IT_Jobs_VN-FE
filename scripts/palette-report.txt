@@ -1,0 +1,5 @@
+palettes: colors(11) ink(11) success(10) warning(10) danger(11)
+scanned 123 files
+  ok    every colour utility resolves to a defined palette step
+
+palette utilities resolve

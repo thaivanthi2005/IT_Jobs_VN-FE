@@ -1,0 +1,12 @@
+localised headline fits its authored box
+  line 1 "TÍN HIỆU NHIỄU": ink=1513px box=1780px scale=1.18
+  ok    line 1 "TÍN HIỆU NHIỄU" scale in range
+  line 2 "CƠ HỘI VẪN RÕ": ink=1513px box=2000px scale=1.32
+  ok    line 2 "CƠ HỘI VẪN RÕ" scale in range
+lines are balanced
+  ok    line widths balanced (1513.08 vs 1513.08)
+copy reads as a slogan about jobs
+  ok    mentions "TÍN HIỆU"
+  ok    mentions "CƠ HỘI"
+
+headline copy fits

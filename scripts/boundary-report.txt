@@ -1,0 +1,5 @@
+scanned 92 tsx files
+  ok    every file with a DOM event handler declares "use client"
+  ok    no server component declares a callback prop
+
+server/client boundary clean

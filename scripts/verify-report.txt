@@ -1,0 +1,29 @@
+source hashes
+  ok    gallery-heading 8e42d2d5b4971bfc
+  ok    constellation-field 1920ad4fe34f2ed2
+gallery-heading transform anchors
+  ok    anchor x1 "<title>New Grainient Collection Added — motion</"
+  ok    anchor x1 "html,body{margin:0;height:100%;background:#000;o"
+  ok    anchor x1 "axis: 25.5,"
+  ok    anchor x1 "phase: 93"
+  ok    anchor x1 "  tile: 346,            /* tile side in ring uni"
+  ok    anchor x1 "  roundRectPath(ctx, TS, TS, TS*RING.radius);"
+  ok    anchor x1 "var CAP = 142;          /* headline cap height *"
+  ok    anchor x1 "{ s:'NEW GRAINIENT',    top:930,  w:1370, fill:'"
+  ok    anchor x1 "{ s:'COLLECTION ADDED', top:1114, w:1775, fill:'"
+  ok    anchor x1 " * Tile artwork — eleven grainy gradient \"wallpa"
+  ok    anchor x1 "y.fillStyle = 'rgba(6,8,18,0.75)';"
+  ok    anchor x1 "var spin = (t/DUR)*Math.PI*2;"
+  ok    anchor x1 "ctx.fillStyle = '#000';\n  ctx.fillRect(0,0,W,H);"
+block patterns
+  ok    ART_BLOCK matches once
+  ok    GRAIN_BLOCK matches once
+  ok    HEAD_BLOCK matches once
+  ok    LABEL_BLOCK matches once
+  ok    CLOCK_BLOCK matches once
+blocks are template-safe
+  ok    Head (2036 chars)
+  ok    Art (6554 chars)
+  ok    Clock (2555 chars)
+
+all checks passed

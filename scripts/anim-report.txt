@@ -1,0 +1,11 @@
+home page animation surface
+  rAF call sites: 1
+  canvas mounts:  4
+  src/components/home/OrbitRings.tsx  rAF:1 canvas:0
+  src/components/three/tech-scene.tsx  rAF:0 canvas:4
+  ok   rAF call sites within budget (<= 6)
+  hero: Backdrop3D yes, OrbitRings yes
+  ok   orbit rings animate in CSS, not JS
+  ok   the 3D scene stops when the tab is hidden
+
+animation budget ok
